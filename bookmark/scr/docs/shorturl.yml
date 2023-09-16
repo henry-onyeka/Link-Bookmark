@@ -1,0 +1,18 @@
+Redirects a short url to the main website or link
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: paths
+    name: shorturl
+    required: true
+    description: request body
+
+responses:
+responses:
+   302:
+     description: permanent redirect
+   
+   404:
+     description: when short url is not given

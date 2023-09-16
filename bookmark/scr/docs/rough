@@ -1,0 +1,15 @@
+Redirect to a short url
+---
+tags:
+  - Bookmarks
+parameters:
+  - in: paths
+    name: shorturl
+    required: true
+
+responses:
+   302:
+   description: permanent redirect
+   
+   404:
+   description: when short ur is not given

@@ -1,0 +1,53 @@
+Registers a user to  bookmark database
+---
+tags:
+  - Registeration
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: body
+    in: body
+    description:  body should contain email, name and  login credentials to register as a new user
+    required: true
+    schema:
+      type: object
+      required:
+        - email
+        - password
+      
+      properties:
+        username:
+          description: a unique name for the user
+          type: string
+          example: "examphenry"
+        email:
+          description: the user email to authenticate access
+          type: string
+          example: "exampe@gmail.com"
+        password:
+          description: password that grants user access as the owner 
+          type: string
+          format: password
+          example: "***********"
+       
+responses:
+  200:
+    description: returns ok meaning Account created 
+    schema:
+      type: object
+      properties:
+        status:
+          description: success / error
+          type: string
+        response:
+          description: message about the status
+          type: object
+          properties:
+            data:
+              description: the data returned by API upon success
+              type: string
+            error:
+              description: the error message returned by API upon failure
+              type: string
