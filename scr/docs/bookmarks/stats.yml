@@ -1,0 +1,18 @@
+Shows details of visited websites
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: Header
+    name: Authorisation
+    required: true
+    description: request body
+
+
+responses:
+   200:
+     description: Bookmarks stats
+   
+   401:
+     description: fails to fetch item due to authentication error

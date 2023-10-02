@@ -19,7 +19,7 @@ def create_app(test_config=None):
         app.config.from_mapping(
             SECRET_KEY=os.environ.get("SECRETE_KEY"),
             SQLALCHEMY_DATABASE_URI = os.environ.get("SQALCHEMY_DB_URI"),
-             JWT_SECRET_KEY = os.environ.get('JWT_SECRETE_KEY'),
+             JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY'),
              SQLALCHEMY_TRACK_MODIFICATIONS =False,
              SWAGGER ={
                  'title':"Bookmark API",
@@ -61,4 +61,3 @@ def create_app(test_config=None):
         return jsonify({"error":"Not found"}),HTTP_404_NOT_FOUND
 
     return app
-

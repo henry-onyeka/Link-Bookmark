@@ -20,7 +20,7 @@ class User(db.Model):
         return f'USER---- {self.username}'
     
 class  Bookmark(db.Model):
-    """cass that generates a tabe in the Bookmark data base 
+    """class that generates a table in the Bookmark data base 
     """
     
 

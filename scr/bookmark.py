@@ -3,6 +3,7 @@ import validators
 from flask_jwt_extended.view_decorators import jwt_required
 from flask_jwt_extended import get_jwt_identity
 from scr.database import Bookmark,db
+from flasgger import Swagger,swag_from
 from scr.constants.http_status import HTTP_400_BAD_REQUEST,HTTP_409_CONFLICT,HTTP_201_CREATED,HTTP_204_NO_CONTENT, HTTP_401_UNAUTHORIZED,HTTP_200_OK,HTTP_404_NOT_FOUND
 bookmarks =Blueprint("bookmarks",__name__,url_prefix="/api/vi/bookmarks")
 
@@ -88,7 +89,7 @@ def  me(id):
     bookm =Bookmark.query.filter_by(user_id=currentuser, id=id).first()
     if not bookm:
         return jsonify({
-            "Message":" Not Found"
+            "Message":" Not Found in the database"
         }),HTTP_404_NOT_FOUND
     
     return jsonify({
@@ -145,7 +146,9 @@ def remove(id):
 
 
 @bookmarks.get('/stats')
+
 @jwt_required()
+@swag_from('./docs/bookmarks/stats.yml')
 def  statistics():
     currentUser= get_jwt_identity()
     data=[]
